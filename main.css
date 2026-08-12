@@ -1,0 +1,16 @@
+.round-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lili{
+    border-radius: 10%;
+}
+.b{
+    border-radius: 10%;
+}
+.a{
+    border-radius: 5%;
+}

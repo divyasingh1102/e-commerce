@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Popular Categories</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background:rgb(241, 234, 224);
+    margin: 0;
+    padding: 60px 40px;
+    color: #2b2b2b;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    font-family: Georgia, serif;
+  }
+
+  /* Categories row */
+  .categories {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+  }
+
+  .category {
+    text-align: center;
+    width: 150px;
+  }
+
+  .category-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #f7f4f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0 auto 18px auto;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+
+  .category-circle img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+  }
+
+  .category:hover .category-circle {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  }
+
+  .category-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .category-count {
+    font-size: 12px;
+    color: #999;
+  }
+
+  /* Promo banners */
+  .banners {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .banner {
+    position: relative;
+    flex: 1 1 460px;
+    min-height: 320px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .banner-1 {
+    background-color: #e7ded4;
+    background-image: linear-gradient(90deg, rgba(231,222,212,0.95) 40%, rgba(231,222,212,0.2)),
+      url('https://images.unsplash.com/photo-1611955167811-4711904bb9f8?w=800&q=80');
+  }
+
+  .banner-2 {
+    background-color: #d9dbd7;
+    background-image: linear-gradient(90deg, rgba(217,219,215,0.95) 40%, rgba(217,219,215,0.2)),
+      url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80');
+  }
+
+  .banner-content {
+    padding: 40px 45px;
+    max-width: 300px;
+  }
+
+  .banner-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 12px;
+  }
+
+  .banner-title {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    line-height: 1.25;
+    margin: 0 0 20px 0;
+    color: #2b2b2b;
+  }
+
+  .banner-link {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #2b2b2b;
+    cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    .categories { gap: 20px; }
+    .category { width: 110px; }
+    .category-circle { width: 110px; height: 110px; }
+  }
+</style>
+</head>
+<body>
+
+  <h2 class="section-title">Popular Categories</h2>
+
+  <div class="categories">
+    <div class="category">
+      <div class="category-circle">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&q=80" alt="Bracelets">
+      </div>
+      <div class="category-name">Bracelets</div>
+      <div class="category-count">(11 Items)</div>
+    </div>
+
+    <div class="category">
+      <div class="category-circle">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&q=80" alt="Charm & Dangler">
+      </div>
+      <div class="category-name">Charm &amp; Dangler</div>
+      <div class="category-count">(15 Items)</div>
+    </div>
+
+    <div class="category">
+      <div class="category-circle">
+        <img src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=200&q=80" alt="Earrings">
+      </div>
+      <div class="category-name">Earrings</div>
+      <div class="category-count">(17 Items)</div>
+    </div>
+
+    <div class="category">
+      <div class="category-circle">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&q=80" alt="Engagement Ring">
+      </div>
+      <div class="category-name">Engagement Ring</div>
+      <div class="category-count">(9 Items)</div>
+    </div>
+
+    <div class="category">
+      <div class="category-circle">
+        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=200&q=80" alt="Necklaces">
+      </div>
+      <div class="category-name">Necklaces</div>
+      <div class="category-count">(11 Items)</div>
+    </div>
+
+    <div class="category">
+      <div class="category-circle">
+        <img src="https://images.unsplash.com/photo-1611955167811-4711904bb9f8?w=200&q=80" alt="Pendant">
+      </div>
+      <div class="category-name">Pendant</div>
+      <div class="category-count">(13 Items)</div>
+    </div>
+  </div>
+
+  <div class="banners">
+    <div class="banner banner-1">
+      <div class="banner-content">
+        <div class="banner-tag">Special Offer</div>
+        <h3 class="banner-title">Flutter &amp; Butterfly Pendant</h3>
+        <div class="banner-link">Shop Now</div>
+      </div>
+    </div>
+
+    <div class="banner banner-2">
+      <div class="banner-content">
+        <div class="banner-tag">New Collection</div>
+        <h3 class="banner-title">Best Gold Filled Bracelet</h3>
+        <div class="banner-link">Shop Now</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

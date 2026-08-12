@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>19 S/S New Arrivals</title>
+<style>
+  :root{
+    --bg: #edddd5;
+    --bg-dark: #dba98f;
+    --ink: #ffffff;
+    --ink-soft: rgba(255,255,255,0.75);
+    --rule: rgba(255,255,255,0.55);
+    --card-shadow: rgba(90,50,35,0.28);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    width:100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-x:hidden;
+  }
+
+  .card{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background: linear-gradient(160deg, var(--bg) 0%, var(--bg-dark) 100%);
+    border-radius:0;
+    padding:64px clamp(24px, 8vw, 120px) 60px;
+    box-shadow:none;
+    overflow:hidden;
+    opacity:0;
+    transform: translateY(18px);
+    animation: cardIn .7s ease forwards;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    box-sizing:border-box;
+  }
+
+  @keyframes cardIn{
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* vertical side labels */
+  .side-label{
+    position:absolute;
+    top:64px;
+    writing-mode: vertical-rl;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:600;
+    color: var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .side-label.left{ left:clamp(16px, 4vw, 48px); }
+  .side-label.right{ right:clamp(16px, 4vw, 48px); }
+
+  .top-rule{
+    width:56px;
+    height:2px;
+    background: var(--ink);
+    margin: 0 auto 28px;
+  }
+
+  .headline{
+    text-align:center;
+    color:var(--ink);
+    font-weight:800;
+    letter-spacing:clamp(6px, 1.4vw, 14px);
+    line-height:1.25;
+    font-size:clamp(34px, 6vw, 72px);
+    margin:0 0 36px;
+    text-transform:uppercase;
+  }
+  .headline span{ display:block; }
+
+  .divider{
+    height:1px;
+    background:var(--rule);
+    margin: 0 0 clamp(30px, 5vw, 56px);
+    max-width:900px;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:clamp(16px, 2.4vw, 32px);
+    max-width:900px;
+    width:100%;
+    margin:0 auto;
+  }
+
+  .bag-slot{
+    background: rgba(255,255,255,0.14);
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    aspect-ratio: 1;
+    padding:clamp(18px, 3vw, 36px);
+    cursor:pointer;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .bag-slot:hover{
+    transform: translateY(-4px) scale(1.03);
+    background: rgba(255,255,255,0.22);
+  }
+  .bag-slot svg{
+    width:100%;
+    height:100%;
+    filter: drop-shadow(0 10px 12px rgba(60,30,20,0.28));
+    transition: filter .25s ease;
+  }
+  .bag-slot:hover svg{
+    filter: drop-shadow(0 14px 16px rgba(60,30,20,0.35));
+  }
+
+  .info-slot{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    color:var(--ink);
+    padding-left:2px;
+  }
+  .info-slot .season{
+    font-size:clamp(11px, 1.1vw, 15px);
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    line-height:1.6;
+    margin-bottom:18px;
+  }
+  .brand-box{
+    border:1px solid var(--ink);
+    border-radius:2px;
+    padding:8px 22px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size:clamp(14px, 1.6vw, 20px);
+    letter-spacing:1px;
+    background:transparent;
+    color:var(--ink);
+    cursor:pointer;
+    transition: background .25s ease, color .25s ease;
+  }
+  .brand-box:hover{
+    background:var(--ink);
+    color:#c98b6f;
+  }
+
+  @media (max-width: 480px){
+    .card{ padding:48px 20px 40px; }
+    .grid{ grid-template-columns: repeat(2, 1fr); }
+    .info-slot{ grid-column: span 2; align-items:center; text-align:center; padding-left:0; padding:10px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <span class="side-label left">19 Spring / Summer</span>
+  <span class="side-label right">New Arrivals</span>
+
+  <div class="top-rule"></div>
+
+  <h1 class="headline">
+    <span></span>
+    <span>New</span>
+    <span>Arrivals</span>
+  </h1>
+
+  <div class="divider"></div>
+
+  <div class="grid">
+    <!-- Row 1 -->
+    <div class="bag-slot" data-name="Teal Bucket Bag">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 40 Q30 20 50 20 Q70 20 70 40" fill="none" stroke="#3f6f7a" stroke-width="4" stroke-linecap="round"/>
+        <path d="M28 40 L72 40 L66 82 Q50 90 34 82 Z" fill="#3f6f7a"/>
+        <circle cx="30" cy="42" r="3" fill="#d9b980"/>
+        <circle cx="70" cy="42" r="3" fill="#d9b980"/>
+      </svg>
+    </div>
+
+    <div class="bag-slot" data-name="Cream Flap Bag">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 32 Q35 22 50 22 Q65 22 65 32" fill="none" stroke="#efe6d8" stroke-width="4" stroke-linecap="round"/>
+        <rect x="24" y="32" width="52" height="46" rx="6" fill="#f2ebde"/>
+        <path d="M24 50 L76 50 L70 78 L30 78 Z" fill="#e7dccb"/>
+        <circle cx="50" cy="52" r="6" fill="none" stroke="#b8955f" stroke-width="2.5"/>
+      </svg>
+    </div>
+
+    <div class="bag-slot" data-name="Burgundy Shoulder Bag">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 30 L60 78" fill="none" stroke="#3a2a2a" stroke-width="4" stroke-linecap="round"/>
+        <rect x="34" y="34" width="46" height="40" rx="5" fill="#5f2430"/>
+        <path d="M34 46 L80 46 L76 68 L38 68 Z" fill="#4d1c26"/>
+        <circle cx="57" cy="48" r="5" fill="none" stroke="#c9a86a" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="bag-slot" data-name="Taupe Flap Bag">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M38 30 Q38 20 50 20 Q62 20 62 30" fill="none" stroke="#cbb9a8" stroke-width="4" stroke-linecap="round"/>
+        <rect x="26" y="30" width="48" height="44" rx="6" fill="#d9c6b3"/>
+        <path d="M26 48 L74 48 L69 74 L31 74 Z" fill="#cbb59f"/>
+        <circle cx="50" cy="50" r="6" fill="none" stroke="#8a6e4f" stroke-width="2.5"/>
+        <path d="M26 40 L20 46" stroke="#8a6e4f" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="info-slot">
+      <span class="season">2019 Spring/Summer<br>Collection</span>
+      <button class="brand-box" type="button">SHOP NOW!</button>
+    </div>
+
+    <div class="bag-slot" data-name="Dusty Blue Chain Bag">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 26 L60 74" fill="none" stroke="#557a86" stroke-width="4" stroke-linecap="round"/>
+        <rect x="32" y="32" width="46" height="42" rx="6" fill="#6b98a3"/>
+        <path d="M32 46 L78 46 L73 72 L37 72 Z" fill="#5c8792"/>
+        <circle cx="55" cy="48" r="5" fill="none" stroke="#e6d3a5" stroke-width="2"/>
+        <path d="M40 60 q3 -3 6 0 q3 -3 6 0" stroke="#e6d3a5" stroke-width="1.6" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Click a bag icon to see its label (simple demo interaction)
+  document.querySelectorAll('.bag-slot').forEach(function (slot) {
+    slot.addEventListener('click', function () {
+      var name = slot.getAttribute('data-name');
+      slot.animate(
+        [{ transform: 'scale(1)' }, { transform: 'scale(0.94)' }, { transform: 'scale(1)' }],
+        { duration: 220, easing: 'ease-in-out' }
+      );
+      console.log('Selected: ' + name);
+    });
+  });
+
+  // Brand box click -> tiny pulse, placeholder for "shop collection" action
+  document.querySelector('.brand-box').addEventListener('click', function () {
+    this.animate(
+      [{ transform: 'scale(1)' }, { transform: 'scale(0.92)' }, { transform: 'scale(1)' }],
+      { duration: 180 }
+    );
+    alert('Shop the 2019 Spring/Summer collection');
+  });
+</script>
+
+</body>
+</html>

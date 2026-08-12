@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumora — Live Beautifully. Shop Effortlessly.</title>
+<link rel="stylesheet" href="main.css">
+
+<style>
+  :root{
+    --cream:#F7F3EC;
+    --cream-dark:#EFE9DE;
+    --green:#1F3A2E;
+    --green-light:#3F5C4C;
+    --pink:#E9B9BA;
+    --pink-light:#F3D9D5;
+    --sage:#AEB89A;
+    --text:#2B2B27;
+    --text-soft:#6B6B62;
+    --gold:#E3B23C;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background:var(--cream);
+    color:var(--text);
+  }
+  h1,h2,h3, .brand, .display{
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+  img{display:block; max-width:100%;}
+  a{text-decoration:none; color:inherit;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 40px;}
+
+  /* HEADER */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:24px 40px;
+    max-width:1200px; margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:8px;
+    font-size:22px; letter-spacing:2px; color:var(--green); font-weight:700;
+  }
+  .brand svg{width:22px; height:22px;}
+  nav{display:flex; gap:36px; font-size:15px;}
+  nav a{color:var(--text); transition:color .2s;}
+  nav a:hover{color:var(--green);}
+  .header-icons{display:flex; gap:22px; align-items:center;}
+  .header-icons .icon{position:relative; cursor:pointer;}
+  .cart-badge{
+    position:absolute; top:-8px; right:-10px;
+    background:var(--pink); color:var(--green); font-size:10px; font-weight:700;
+    width:16px; height:16px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    max-width:1200px; margin:10px auto 0; padding:0 40px 40px;
+    display:grid; grid-template-columns:1fr 1fr;
+    align-items:center; gap:20px;
+    overflow:visible;
+  }
+  .hero-text .eyebrow{
+    font-size:12px; letter-spacing:2px; color:var(--text-soft); margin-bottom:14px; font-weight:600;
+  }
+  .hero-text h1{
+    font-size:44px; line-height:1.15; color:var(--text); font-weight:400;
+  }
+  .hero-text h1 em{font-style:italic;}
+  .hero-text p{
+    margin-top:18px; color:var(--text-soft); font-size:15px; max-width:340px; line-height:1.6;
+  }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--green); color:#fff; padding:14px 28px;
+    border-radius:30px; font-size:14px; margin-top:26px; border:none; cursor:pointer;
+    transition:transform .2s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .perks{display:flex; gap:34px; margin-top:44px;}
+  .perk{text-align:left; font-size:12px;}
+  .perk .badge{
+    width:40px; height:40px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; margin-bottom:10px; font-size:18px;
+  }
+  .perk:nth-child(1) .badge{background:var(--gold); color:#fff;}
+  .perk:nth-child(2) .badge{background:var(--sage); color:#fff;}
+  .perk:nth-child(3) .badge{background:var(--pink); color:var(--green);}
+  .perk strong{display:block; font-size:13px; margin-bottom:2px;}
+  .perk span{color:var(--text-soft); font-size:11px;}
+
+  .hero-image{
+    position:relative;
+    display:flex; justify-content:center; align-items:flex-end;
+    height:520px;
+  }
+  .hero-blob{
+    position:absolute; right:0; top:0; width:100%; height:100%;
+    background: radial-gradient(circle at 60% 30%, var(--pink-light) 0%, var(--pink) 45%, transparent 70%);
+    border-radius:50% 50% 45% 45% / 60% 60% 40% 40%;
+    z-index:0; opacity:.7;
+  }
+  .hero-photo{
+    position:relative; z-index:1; width:78%; height:100%; border-radius:24px;
+    background: linear-gradient(160deg, #C9D0BA 0%, #A9B597 60%, #8FA07A 100%);
+    display:flex; align-items:center; justify-content:center;
+    color:rgba(255,255,255,.6); font-size:13px; letter-spacing:1px;
+  }
+  .product-float{
+    position:absolute; bottom:40px; right:-10px; z-index:2;
+    background:#fff; border-radius:16px; padding:16px; width:200px;
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+  }
+  .product-float .thumb{
+    width:100%; height:110px; border-radius:10px; margin-bottom:10px;
+    background:linear-gradient(160deg,#DDD3C4,#C7B79E);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:11px;
+    position:relative;
+  }
+  .product-float .heart{
+    position:absolute; top:10px; right:10px; background:#fff; border-radius:50%;
+    width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-size:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+  }
+  .product-float h4{font-size:13px; margin-bottom:2px; font-weight:600;}
+  .product-float .price{font-size:13px; color:var(--text-soft); margin-bottom:10px;}
+  .product-float .row{display:flex; gap:8px;}
+  .btn-cart{
+    flex:1; background:var(--green); color:#fff; border:none; padding:9px 0;
+    border-radius:8px; font-size:12px; cursor:pointer;
+  }
+  .btn-plus{
+    width:34px; background:var(--cream-dark); border:none; border-radius:8px; cursor:pointer; font-size:14px;
+  }
+  .dots{display:flex; gap:6px; justify-content:center; margin-top:10px;}
+  .dots span{width:5px; height:5px; border-radius:50%; background:#ccc;}
+  .dots span:first-child{background:var(--green);}
+
+  /* CATEGORY CARD */
+  .card-section{
+    max-width:1200px; margin:20px auto; background:#fff; border-radius:24px;
+    padding:36px 40px; box-shadow:0 10px 40px rgba(0,0,0,.03);
+  }
+  .card-section .section-head{
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;
+  }
+  .section-head h2{font-size:26px; font-weight:400;}
+  .browse-all{font-size:13px; display:flex; align-items:center; gap:6px; color:var(--text);}
+  .categories{
+    display:flex; justify-content:space-between; text-align:center; gap:10px; flex-wrap:wrap;
+  }
+  .category{flex:1; min-width:110px;}
+  .category .circle{
+    width:110px; height:110px; border-radius:50%; margin:0 auto 14px;
+    background:linear-gradient(160deg,#E7DFD1,#CFC5AF);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.7); font-size:12px;
+  }
+  .category h4{font-size:14px; font-weight:600;}
+  .category span{font-size:12px; color:var(--text-soft);}
+
+  /* SALE BANNER */
+  .sale-banner{
+    max-width:1200px; margin:20px auto; background:var(--green); border-radius:24px;
+    display:grid; grid-template-columns:1fr 1fr; overflow:hidden; position:relative;
+  }
+  .sale-content{padding:50px; color:#fff;}
+  .sale-content .eyebrow{
+    display:flex; align-items:center; gap:8px; font-size:12px; letter-spacing:2px; color:var(--pink-light); margin-bottom:18px;
+  }
+  .sale-content h2{font-size:34px; font-weight:400; margin-bottom:14px;}
+  .sale-content p{color:#D9DED6; font-size:14px; margin-bottom:26px; max-width:280px; line-height:1.6;}
+  .btn-explore{
+    background:var(--pink); color:var(--green); padding:13px 26px; border-radius:30px;
+    font-size:14px; display:inline-flex; align-items:center; gap:10px; border:none; cursor:pointer;
+  }
+  .sale-image{
+    position:relative;
+    background:linear-gradient(160deg,#C9D0BA,#8FA07A);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:12px;
+  }
+  .discount-circle{
+    position:absolute; left:-40px; top:50%; transform:translateY(-50%);
+    width:110px; height:110px; border-radius:50%; background:var(--pink);
+    color:var(--green); display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-weight:700; box-shadow:0 15px 30px rgba(0,0,0,.15);
+  }
+  .discount-circle .big{font-size:24px; line-height:1;}
+  .discount-circle .small{font-size:10px; letter-spacing:1px; margin-top:2px;}
+
+  /* NEW ARRIVALS */
+  .arrivals{max-width:1200px; margin:40px auto 20px; padding:0 40px;}
+  .arrivals .section-head{
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:26px;
+  }
+  .arrivals h2{font-size:26px; font-weight:400;}
+  .product-grid{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:20px;
+  }
+  .product-card .thumb{
+    position:relative; width:100%; aspect-ratio:1/1.05; border-radius:14px; margin-bottom:12px;
+    background:linear-gradient(160deg,#E7DFD1,#CFC5AF);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:11px;
+  }
+  .product-card .heart{
+    position:absolute; top:10px; right:10px; background:#fff; border-radius:50%;
+    width:26px; height:26px; display:flex; align-items:center; justify-content:center; font-size:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+  }
+  .product-card h4{font-size:14px; font-weight:600; margin-bottom:4px;}
+  .product-card .price{font-size:13px; color:var(--text-soft); margin-bottom:8px;}
+  .product-card .dots span{background:#ccc;}
+  .product-card .dots span:first-child{background:var(--green);}
+
+  /* NEWSLETTER */
+  .newsletter{
+    max-width:1200px; margin:40px auto; background:var(--pink-light);
+    border-radius:24px; padding:34px 44px; display:flex; align-items:center; justify-content:space-between; gap:30px;
+    flex-wrap:wrap;
+  }
+  .newsletter-left{display:flex; align-items:center; gap:20px;}
+  .newsletter-left .mail-icon{
+    width:52px; height:52px; border-radius:14px; background:var(--green); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;
+  }
+  .newsletter-left h3{font-size:17px; margin-bottom:4px; font-weight:600;}
+  .newsletter-left p{font-size:13px; color:var(--text-soft); max-width:340px;}
+  .subscribe-form{display:flex; gap:10px;}
+  .subscribe-form input{
+    padding:13px 20px; border-radius:30px; border:none; width:230px; font-size:13px;
+    background:#fff;
+  }
+  .subscribe-form button{
+    background:var(--green); color:#fff; border:none; padding:13px 26px; border-radius:30px;
+    font-size:13px; cursor:pointer;
+  }
+
+  /* FOOTER STRIP */
+  .footer-strip{
+    max-width:1200px; margin:20px auto 60px; padding:30px 40px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center;
+  }
+  .footer-strip .item{display:flex; flex-direction:column; align-items:center; gap:8px;}
+  .footer-strip .item .fi{font-size:20px; color:var(--green);}
+  .footer-strip .item strong{font-size:13px;}
+  .footer-strip .item span{font-size:11px; color:var(--text-soft);}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; text-align:center;}
+    .hero-text p{margin:18px auto 0;}
+    .perks{justify-content:center;}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .categories{justify-content:center;}
+    .sale-banner{grid-template-columns:1fr;}
+    .sale-image{min-height:220px;}
+    .footer-strip{grid-template-columns:repeat(2,1fr);}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 4-4 6-4 10a4 4 0 008 0c0-4-4-6-4-10z"/></svg>
+    RIVO
+  </div>
+  <nav>
+    <a href="shop.html">Shop</a>
+    <a href="collections.html">Collections</a>
+    <a href="newarrivals.html">New Arrivals</a>
+    <a href="deals.html">Deals</a>
+    <!-- <a href="about.html">About</a> -->
+  </nav>
+  <div class="header-icons">
+    <span class="icon">&#128269;</span>
+    <span class="icon">&#128100;</span>
+    <span class="icon">&#128092;<span class="cart-badge">2</span></span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">NEW SEASON COLLECTION</div>
+    <h1>Live Beautifully.<br><em>Shop Effortlessly.</em></h1>
+    <p>Curated styles, quality you love, delivered to your door.</p>
+    <button class="btn-primary">Shop Now &rarr;</button>
+    <div class="perks">
+      <div class="perk">
+        <div class="badge">&#128666;</div>
+        <strong>Free Shipping</strong>
+        <span>On orders over $50</span>
+      </div>
+      <div class="perk">
+        <div class="badge">&#128274;</div>
+        <strong>Secure Payment</strong>
+        <span>100% protected</span>
+      </div>
+      <div class="perk">
+        <div class="badge">&#128260;</div>
+        <strong>Easy Returns</strong>
+        <span>30-day return</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-blob"></div>
+    <div class="hero-photo"><img src="./girls.jpg"height=520px width="670px" class="a"></div>
+    <div class="product-float">
+      <div class="thumb">
+        <img src="./handbag.webp" height="110px" width="700px"class="b">
+        <div class="heart">&#9825;</div>
+      </div>
+      <h4>Luxe Handbag</h4>
+      <div class="price">$129.00</div>
+      <div class="row">
+        <button class="btn-cart">Add to Cart</button>
+        <button class="btn-plus">+</button>
+      </div>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="card-section">
+  <div class="section-head">
+    <h2>Shop by Category</h2>
+    <a class="browse-all" href="#">Browse all &rarr;</a>
+  </div>
+  <div class="categories">
+    <div class="category"><div class="circle">  <img src="./woman-pink-jacket-looking-camera_23-2148316471.avif" alt="women" class="round-img">
+  </div><h4>Women</h4><span>120+ items</span></div>
+    <div class="category"><div class="circle">  <img src="./men.jpg" class="round-img">  </div><h4>Men</h4><span>98+ items</span></div>
+    <div class="category"><div class="circle">  <img src="./plant.jpg" class="round-img">  </div><h4>Home &amp; Living</h4><span>150+ items</span></div>
+    <div class="category"><div class="circle">  <img src="./beauty.jpg" class="round-img"></div><h4>Beauty</h4><span>80+ items</span></div>
+    <div class="category"><div class="circle">  <img src="./accessories.jpg" class="round-img"></div><h4>Accessories</h4><span>70+ items</span></div>
+  </div>
+</section>
+
+<section class="sale-banner">
+  <div class="sale-content">
+    <div class="eyebrow">&#10022; LIMITED TIME OFFER</div>
+    <h2>Spring Sale is Live!</h2>
+    <p>Enjoy up to 40% off on selected collections.</p>
+    <button class="btn-explore">Explore Deals &rarr;</button>
+  </div>
+  <div class="sale-image">
+    <img src="./accessories3.jpg"height="290px"width="700px">
+    <div class="discount-circle">
+      <span class="big">40%</span>
+      <span class="small">UP TO<br>OFF</span>
+    </div>
+  </div>
+</section>
+
+<section class="arrivals">
+  <div class="section-head">
+    <h2>New Arrivals</h2>
+    <a class="browse-all" href="#">View all &rarr;</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="thumb"><img src="./linen.jpg" class="lili"><div class="heart">&#9825;</div></div>
+      <h4>Linen Shirt</h4>
+      <div class="price">$49.00</div>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="product-card">
+      <div class="thumb"><img src="./sneakers2.jpg" class="lili"></div>
+      <h4>Minimal Sneakers</h4>
+      <div class="price">$79.00</div>
+      <div class="dots"><span></span><span></span></div>
+    </div>
+    <div class="product-card">
+      <div class="thumb"><img src="./candle.jpg"height="210px" class="b"></div>
+      <h4>Scented Candle</h4>
+      <div class="price">$26.00</div>
+      <div class="dots"><span></span><span></span></div>
+    </div>
+    <div class="product-card">
+      <div class="thumb"><img src="./hat.jpg"height="210px"class="b">t</div>
+      <h4>Straw Hat</h4>
+      <div class="price">$35.00</div>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="product-card">
+      <div class="thumb"><img src="./gold hoops.jpg" class="b"></div>
+      <h4>Gold Hoops</h4>
+      <div class="price">$19.00</div>
+      <div class="dots"><span></span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="newsletter-left">
+    <div class="mail-icon">&#9993;</div>
+    <div>
+      <h3>Join the Rivo Circle</h3>
+      <p>Be the first to know about new arrivals, exclusive offers, and style inspiration.</p>
+    </div>
+  </div>
+  <div class="subscribe-form">
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </div>
+</section>
+
+<section class="footer-strip">
+  <div class="item"><div class="fi">&#127942;</div><strong>Quality You Can Trust</strong><span>Premium products handpicked for you.</span></div>
+  <div class="item"><div class="fi">&#127911;</div><strong>Customer Support</strong><span>We're here to help, 24/7.</span></div>
+  <div class="item"><div class="fi">&#11088;</div><strong>Loved by Thousands</strong><span>Join our happy customer community.</span></div>
+  <div class="item"><div class="fi">&#127760;</div><strong>Sustainable Choice</strong><span>Thoughtful shopping for a better tomorrow.</span></div>
+</section>
+
+</body>
+</html>
