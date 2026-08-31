@@ -20,23 +20,33 @@
     --gold:#E3B23C;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+
+  /* FIX: force html/body to fill the entire viewport with no gaps */
+  html{
+    width:100%;
+    height:100%;
+  }
   body{
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     background:var(--cream);
     color:var(--text);
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden; /* prevents the hero blob / floats from causing a horizontal gap */
   }
+
   h1,h2,h3, .brand, .display{
     font-family: 'Georgia', 'Times New Roman', serif;
   }
   img{display:block; max-width:100%;}
   a{text-decoration:none; color:inherit;}
-  .wrap{max-width:1200px; margin:0 auto; padding:0 40px;}
+  .wrap{width:100%; padding:0 40px;}
 
   /* HEADER */
   header{
     display:flex; align-items:center; justify-content:space-between;
     padding:24px 40px;
-    max-width:1200px; margin:0 auto;
+    width:100%;
   }
   .brand{
     display:flex; align-items:center; gap:8px;
@@ -58,10 +68,11 @@
   /* HERO */
   .hero{
     position:relative;
-    max-width:1200px; margin:10px auto 0; padding:0 40px 40px;
+    margin:10px 0 0; padding:0 40px 40px;
     display:grid; grid-template-columns:1fr 1fr;
     align-items:center; gap:20px;
     overflow:visible;
+    width:100%;
   }
   .hero-text .eyebrow{
     font-size:12px; letter-spacing:2px; color:var(--text-soft); margin-bottom:14px; font-weight:600;
@@ -105,9 +116,13 @@
   }
   .hero-photo{
     position:relative; z-index:1; width:78%; height:100%; border-radius:24px;
+    overflow:hidden;
     background: linear-gradient(160deg, #C9D0BA 0%, #A9B597 60%, #8FA07A 100%);
     display:flex; align-items:center; justify-content:center;
     color:rgba(255,255,255,.6); font-size:13px; letter-spacing:1px;
+  }
+  .hero-photo img{
+    width:100%; height:100%; object-fit:cover;
   }
   .product-float{
     position:absolute; bottom:40px; right:-10px; z-index:2;
@@ -119,6 +134,10 @@
     background:linear-gradient(160deg,#DDD3C4,#C7B79E);
     display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:11px;
     position:relative;
+    overflow:hidden;
+  }
+  .product-float .thumb img{
+    width:100%; height:100%; object-fit:cover;
   }
   .product-float .heart{
     position:absolute; top:10px; right:10px; background:#fff; border-radius:50%;
@@ -141,8 +160,9 @@
 
   /* CATEGORY CARD */
   .card-section{
-    max-width:1200px; margin:20px auto; background:#fff; border-radius:24px;
+    margin:20px 20px; background:#fff; border-radius:24px;
     padding:36px 40px; box-shadow:0 10px 40px rgba(0,0,0,.03);
+    width:calc(100% - 40px);
   }
   .card-section .section-head{
     display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;
@@ -157,14 +177,19 @@
     width:110px; height:110px; border-radius:50%; margin:0 auto 14px;
     background:linear-gradient(160deg,#E7DFD1,#CFC5AF);
     display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.7); font-size:12px;
+    overflow:hidden;
+  }
+  .category .circle img{
+    width:100%; height:100%; object-fit:cover;
   }
   .category h4{font-size:14px; font-weight:600;}
   .category span{font-size:12px; color:var(--text-soft);}
 
   /* SALE BANNER */
   .sale-banner{
-    max-width:1200px; margin:20px auto; background:var(--green); border-radius:24px;
+    margin:20px 20px; background:var(--green); border-radius:24px;
     display:grid; grid-template-columns:1fr 1fr; overflow:hidden; position:relative;
+    width:calc(100% - 40px);
   }
   .sale-content{padding:50px; color:#fff;}
   .sale-content .eyebrow{
@@ -180,18 +205,23 @@
     position:relative;
     background:linear-gradient(160deg,#C9D0BA,#8FA07A);
     display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:12px;
+    overflow:hidden;
+  }
+  .sale-image img{
+    width:100%; height:100%; object-fit:cover;
   }
   .discount-circle{
     position:absolute; left:-40px; top:50%; transform:translateY(-50%);
     width:110px; height:110px; border-radius:50%; background:var(--pink);
     color:var(--green); display:flex; flex-direction:column; align-items:center; justify-content:center;
     font-weight:700; box-shadow:0 15px 30px rgba(0,0,0,.15);
+    z-index:2;
   }
   .discount-circle .big{font-size:24px; line-height:1;}
   .discount-circle .small{font-size:10px; letter-spacing:1px; margin-top:2px;}
 
   /* NEW ARRIVALS */
-  .arrivals{max-width:1200px; margin:40px auto 20px; padding:0 40px;}
+  .arrivals{margin:40px 0 20px; padding:0 40px; width:100%;}
   .arrivals .section-head{
     display:flex; justify-content:space-between; align-items:center; margin-bottom:26px;
   }
@@ -203,6 +233,10 @@
     position:relative; width:100%; aspect-ratio:1/1.05; border-radius:14px; margin-bottom:12px;
     background:linear-gradient(160deg,#E7DFD1,#CFC5AF);
     display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:11px;
+    overflow:hidden;
+  }
+  .product-card .thumb img{
+    width:100%; height:100%; object-fit:cover;
   }
   .product-card .heart{
     position:absolute; top:10px; right:10px; background:#fff; border-radius:50%;
@@ -216,9 +250,10 @@
 
   /* NEWSLETTER */
   .newsletter{
-    max-width:1200px; margin:40px auto; background:var(--pink-light);
+    margin:40px 20px; background:var(--pink-light);
     border-radius:24px; padding:34px 44px; display:flex; align-items:center; justify-content:space-between; gap:30px;
     flex-wrap:wrap;
+    width:calc(100% - 40px);
   }
   .newsletter-left{display:flex; align-items:center; gap:20px;}
   .newsletter-left .mail-icon{
@@ -239,8 +274,9 @@
 
   /* FOOTER STRIP */
   .footer-strip{
-    max-width:1200px; margin:20px auto 60px; padding:30px 40px;
+    margin:20px 0 60px; padding:30px 40px;
     display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center;
+    width:100%;
   }
   .footer-strip .item{display:flex; flex-direction:column; align-items:center; gap:8px;}
   .footer-strip .item .fi{font-size:20px; color:var(--green);}
@@ -307,10 +343,10 @@
   </div>
   <div class="hero-image">
     <div class="hero-blob"></div>
-    <div class="hero-photo"><img src="./girls.jpg"height=520px width="670px" class="a"></div>
+    <div class="hero-photo"><img src="./girls.jpg" alt=""></div>
     <div class="product-float">
       <div class="thumb">
-        <img src="./handbag.webp" height="110px" width="700px"class="b">
+        <img src="./handbag.webp" alt="Luxe Handbag">
         <div class="heart">&#9825;</div>
       </div>
       <h4>Luxe Handbag</h4>
@@ -330,12 +366,11 @@
     <a class="browse-all" href="#">Browse all &rarr;</a>
   </div>
   <div class="categories">
-    <div class="category"><div class="circle">  <img src="./woman-pink-jacket-looking-camera_23-2148316471.avif" alt="women" class="round-img">
-  </div><h4>Women</h4><span>120+ items</span></div>
-    <div class="category"><div class="circle">  <img src="./men.jpg" class="round-img">  </div><h4>Men</h4><span>98+ items</span></div>
-    <div class="category"><div class="circle">  <img src="./plant.jpg" class="round-img">  </div><h4>Home &amp; Living</h4><span>150+ items</span></div>
-    <div class="category"><div class="circle">  <img src="./beauty.jpg" class="round-img"></div><h4>Beauty</h4><span>80+ items</span></div>
-    <div class="category"><div class="circle">  <img src="./accessories.jpg" class="round-img"></div><h4>Accessories</h4><span>70+ items</span></div>
+    <div class="category"><div class="circle"><img src="./woman-pink-jacket-looking-camera_23-2148316471.avif" alt="women" class="round-img"></div><h4>Women</h4><span>120+ items</span></div>
+    <div class="category"><div class="circle"><img src="./men.jpg" class="round-img" alt="men"></div><h4>Men</h4><span>98+ items</span></div>
+    <div class="category"><div class="circle"><img src="./plant.jpg" class="round-img" alt="home"></div><h4>Home &amp; Living</h4><span>150+ items</span></div>
+    <div class="category"><div class="circle"><img src="./beauty.jpg" class="round-img" alt="beauty"></div><h4>Beauty</h4><span>80+ items</span></div>
+    <div class="category"><div class="circle"><img src="./accessories.jpg" class="round-img" alt="accessories"></div><h4>Accessories</h4><span>70+ items</span></div>
   </div>
 </section>
 
@@ -347,7 +382,7 @@
     <button class="btn-explore">Explore Deals &rarr;</button>
   </div>
   <div class="sale-image">
-    <img src="./accessories3.jpg"height="290px"width="700px">
+    <img src="./accessories3.jpg" alt="">
     <div class="discount-circle">
       <span class="big">40%</span>
       <span class="small">UP TO<br>OFF</span>
@@ -362,31 +397,31 @@
   </div>
   <div class="product-grid">
     <div class="product-card">
-      <div class="thumb"><img src="./linen.jpg" class="lili"><div class="heart">&#9825;</div></div>
+      <div class="thumb"><img src="./linen.jpg" alt="Linen Shirt"><div class="heart">&#9825;</div></div>
       <h4>Linen Shirt</h4>
       <div class="price">$49.00</div>
       <div class="dots"><span></span><span></span><span></span></div>
     </div>
     <div class="product-card">
-      <div class="thumb"><img src="./sneakers2.jpg" class="lili"></div>
+      <div class="thumb"><img src="./sneakers2.jpg" alt="Minimal Sneakers"></div>
       <h4>Minimal Sneakers</h4>
       <div class="price">$79.00</div>
       <div class="dots"><span></span><span></span></div>
     </div>
     <div class="product-card">
-      <div class="thumb"><img src="./candle.jpg"height="210px" class="b"></div>
+      <div class="thumb"><img src="./candle.jpg" alt="Scented Candle"></div>
       <h4>Scented Candle</h4>
       <div class="price">$26.00</div>
       <div class="dots"><span></span><span></span></div>
     </div>
     <div class="product-card">
-      <div class="thumb"><img src="./hat.jpg"height="210px"class="b">t</div>
+      <div class="thumb"><img src="./hat.jpg" alt="Straw Hat"></div>
       <h4>Straw Hat</h4>
       <div class="price">$35.00</div>
       <div class="dots"><span></span><span></span><span></span></div>
     </div>
     <div class="product-card">
-      <div class="thumb"><img src="./gold hoops.jpg" class="b"></div>
+      <div class="thumb"><img src="./gold hoops.jpg" alt="Gold Hoops"></div>
       <h4>Gold Hoops</h4>
       <div class="price">$19.00</div>
       <div class="dots"><span></span><span></span></div>
